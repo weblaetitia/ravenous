@@ -30,11 +30,16 @@ const businessTwo = {
 const businesses = [business, businessTwo, business, businessTwo, business, businessTwo]
 
 export default class App extends React.Component {
+  searchYelp(term, location, sortBy) {
+    if (term && location && sortBy) {
+      console.log(`Searching Yelp with ${term}, ${location}, by ${sortBy}`)
+    }
+  }
   render() {
     return (
       <div className="App">
         <h1>ravenous</h1>
-        <SearchBar />
+        <SearchBar searchYelp={this.searchYelp} />
         <BusinessList businesses={businesses} />
       </div>
     );
